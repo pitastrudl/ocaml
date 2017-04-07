@@ -1,7 +1,7 @@
 
 ### Eclipse ###
 
-#.metadata
+metadata
 bin/
 tmp/
 *.tmp
@@ -9,12 +9,12 @@ tmp/
 *.swp
 *~.nib
 local.properties
-#.settings/
-#.loadpath
+.settings/
+.loadpath
 .recommenders
 
 # Eclipse Core
-#.project
+.project
 
 # External tool builders
 .externalToolBuilders/
