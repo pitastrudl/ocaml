@@ -1,8 +1,7 @@
-reated by https://www.gitignore.io/api/ocaml,eclipse
 
 ### Eclipse ###
 
-.metadata
+#.metadata
 bin/
 tmp/
 *.tmp
