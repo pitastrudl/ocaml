@@ -1,7 +1,7 @@
 .paths
 ### Eclipse ###
 
-.metadata
+#.metadata
 bin/
 tmp/
 *.tmp
@@ -11,7 +11,7 @@ tmp/
 local.properties
 #.settings/
 #.loadpath
-.recommenders
+#.recommenders
 
 # Eclipse Core
 #.project
@@ -69,7 +69,7 @@ local.properties
 *.cmxa
 
 # ocamlbuild working directory
-_build/
+#_build/
 
 # ocamlbuild targets
 *.byte
