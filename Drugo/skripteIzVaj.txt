@@ -1,0 +1,1792 @@
+# ();;
+- : unit = ()
+# true;;
+- : bool = true
+# false;;
+- : bool = false
+# 1 = 2;;
+- : bool = false
+# 1 < 3;;
+- : bool = true
+# 4/2;;
+- : int = 2
+# 6/4;;
+- : int = 1
+# 123.45;;
+- : float = 123.45
+# 1234e-2;;
+- : float = 12.34
+# float_of_int 4;;
+- : float = 4.
+# 1. < float_of_int 4;;
+- : bool = true
+# 1. +. 3.;;
+- : float = 4.
+# 2. *. 4.;;
+- : float = 8.
+# 6. /. 4.;;
+- : float = 1.5
+# 2. ** 3. ** 2.;;
+- : float = 512.
+# (2. ** 3.) ** 2.;;
+- : float = 64.
+# 2. +. 4. *. 4.;;
+- : float = 18.
+# '2';;
+- : char = '2'
+# 't';;
+- : char = 't'
+# int_of_char 'a';;
+- : int = 97
+# int_of_char 'a' < 2;;
+- : bool = false
+# char_of_int 70;;
+- : char = 'F'
+# "Danes je lepo vreme!";;
+- : string = "Danes je lepo vreme!"
+# string_of_int 30;;
+- : string = "30"
+# string_of_int  2013;;
+- : string = "2013"
+# 'a' < 'w';;
+- : bool = true
+# "aaa" < "aab";;
+- : bool = true
+# "Gremo " ^ "domov!";;
+- : string = "Gremo domov!"
+# "Danes " ^ "je " ^ "petek!";;
+- : string = "Danes je petek!"
+# (2,3);;
+- : int * int = (2, 3)
+# (3,'3');;
+- : int * char = (3, '3')
+# (4, 7, 8, "Bla", "Banana", 't');;
+- : int * int * int * string * string * char =
+(4, 7, 8, "Bla", "Banana", 't')
+# ((4,6),(7,6),'z');;
+- : (int * int) * (int * int) * char = ((4, 6), (7, 6), 'z')
+# fst(3,5);;
+- : int = 3
+# snd(5,'g');;
+- : char = 'g'
+# fst((3,'r'),7);;
+- : int * char = (3, 'r')
+# snd(fst((3,'r'),7));;
+- : char = 'r'
+# [2;3;4;5];;
+- : int list = [2; 3; 4; 5]
+# ['e';'r';'t';'z'];;
+- : char list = ['e'; 'r'; 't'; 'z']
+# 1::[2;3;4;5];;
+- : int list = [1; 2; 3; 4; 5]
+# [2;3;4;5]::[[1]];;
+- : int list list = [[2; 3; 4; 5]; [1]]
+# [2;3;4;5]@[1];;
+- : int list = [2; 3; 4; 5; 1]
+# [2;3;4;5]@[1]@[2;3;4;5]@[1];;
+- : int list = [2; 3; 4; 5; 1; 2; 3; 4; 5; 1]
+# [2;3;4;5]@1::[];;
+- : int list = [2; 3; 4; 5; 1]
+# List.hd[2; 3; 4; 5; 1];;
+- : int = 2
+# List.tl[2; 3; 4; 5; 1];;
+- : int list = [3; 4; 5; 1]
+# List.hd[2; 3];;
+- : int = 2
+# List.tl[2; 3];;
+- : int list = [3]
+# List.hd(List.tl[2; 3]);;
+- : int = 3
+# List.hd(List.tl(List.tl(List.tl[3;4;6;8;3])))::[];;
+- : int list = [8]
+# let x = 1;;
+val x : int = 1
+# let x = 2;;
+val x : int = 2
+# x;;
+- : int = 2
+# x < 3;;
+- : bool = true
+# let y = 7;;
+val y : int = 7
+# x;;
+- : int = 2
+# y;;
+- : int = 7
+# x +y;;
+- : int = 9
+# x < y;;
+- : bool = true
+# let danes="petek";;
+val danes : string = "petek"
+# danes;;
+- : string = "petek"
+# let z = 3 * 5 + 7;;
+val z : int = 22
+# z;;
+- : int = 22
+# let seznam = [3;4;6;8;3];;
+val seznam : int list = [3; 4; 6; 8; 3]
+# List.hd(List.tl(List.tl(List.tl seznam)))::[];;
+- : int list = [8]
+# let a = List.hd(List.tl(List.tl(List.tl seznam)))::[];;
+val a : int list = [8]
+# a;;
+- : int list = [8]
+# let u = 4 and b = 5 and c = 6;;
+val u : int = 4
+val b : int = 5
+val c : int = 6
+# u+b+c;;
+- : int = 15
+# let i = 7;;
+val i : int = 7
+# let i = 1 and j = i + 2;;
+val i : int = 1
+val j : int = 9
+# i;;
+- : int = 1
+# let i = 7;;
+val i : int = 7
+# let j = i+2 in i = 1;;
+- : bool = false
+# let  dan = "Danes je " in dan ^ "petek";;
+- : string = "Danes je petek"
+# j;;
+- : int = 9
+# false&&false;;
+- : bool = false
+# false&&true;;
+- : bool = false
+# true&&false;;
+- : bool = false
+# true&&true;;
+- : bool = true
+# let sez1 = [1;2] and sez2 = [4;5];;
+val sez1 : int list = [1; 2]
+val sez2 : int list = [4; 5]
+# let seznam = sez1 @ 3 :: [] @ sez2;;
+val seznam : int list = [1; 2; 3; 4; 5]
+# seznam;;
+- : int list = [1; 2; 3; 4; 5]
+# let a= 4 and b = 5 and c = 7 in a * b * c;;
+- : int = 140
+# let ime = "Banana" and telefon=040123123;;
+val ime : string = "Banana"
+val telefon : int = 40123123
+# let seznam = [ime; "0" ^ string_of_int telefon];;
+val seznam : string list = ["Banana"; "040123123"]
+# let bla = " ";;
+val bla : string = " "
+# bla.[0] <- 'c';;
+- : unit = ()
+# bla;;
+- : string = "c"
+# bla.[0] <- 't';;
+- : unit = ()
+# bla;;
+- : string = "t"
+# let t = (2.,2,'2');;
+val t : float * int * char = (2., 2, '2')
+# let sez = ['2';'e'];;
+val sez : char list = ['2'; 'e']
+# let terica = ((2,3),(4,5));;
+val terica : (int * int) * (int * int) = ((2, 3), (4, 5))
+# let blaterica = (2, (true,('e',()),2.),2,"bla");;
+val blaterica : int * (bool * (char * unit) * float) * int * string =
+  (2, (true, ('e', ()), 2.), 2, "bla")
+# let teri = (true,(2,(2.,()),'e'));;
+val teri : bool * (int * (float * unit) * char) = (true, (2, (2., ()), 'e'))
+# let ter = ("bla",("bla",2),[3;4;5],true);;
+val ter : string * (string * int) * int list * bool =
+  ("bla", ("bla", 2), [3; 4; 5], true)
+# let a = 4 and b = 7;;
+val a : int = 4
+val b : int = 7
+# if a>b then a else b;;
+- : int = 7
+# let mala_crka = 'r';;
+val mala_crka : char = 'r'
+# let velika_crka = char_of_int(int_of_char mala_crka -32);;
+val velika_crka : char = 'R'
+
+-------------------------------------------------------------------------------
+
+# function x -> x * x;;
+- : int -> int = <fun>
+# function x -> x + 1;;
+- : int -> int = <fun>
+# (function x -> x * x)9;;
+- : int = 81
+# (function x -> x + 1)7;;
+- : int = 8
+# function (a,b) -> (a+1,b-1);;
+- : int * int -> int * int = <fun>
+# (function (a,b) -> (a+1,b-1))(6,8);;
+- : int * int = (7, 7)
+# function x -> (x+1,x-1);;
+- : int -> int * int = <fun>
+# (function x -> (x+1,x-1))5;;
+- : int * int = (6, 4)
+# function x -> [x];;
+- : 'a -> 'a list = <fun>
+# (function x -> [x])'n';;
+- : char list = ['n']
+# (function x -> [x])1;;
+- : int list = [1]
+# (function x -> [x])"bla";;
+- : string list = ["bla"]
+# fun (a,b) -> ((a,b),(b,a));;
+- : 'a * 'b -> ('a * 'b) * ('b * 'a) = <fun>
+# (fun (a,b) -> ((a,b),(b,a)))(3,3.);;
+- : (int * float) * (float * int) = ((3, 3.), (3., 3))
+# (fun (a,b) -> ((a,b),(b,a)))('e',1);;
+- : (char * int) * (int * char) = (('e', 1), (1, 'e'))
+# let produkt = fun (x,y) -> x*y;;
+val produkt : int * int -> int = <fun>
+# produkt (2,5);;
+- : int = 10
+# let naslednik = fun x -> x+1;;
+val naslednik : int -> int = <fun>
+# naslednik 2;;
+- : int = 3
+# let predhodnik = fun x -> x-1;;
+val predhodnik : int -> int = <fun>
+# let prednas = fun x -> (predhodnik x, naslednik x);;
+val prednas : int -> int * int = <fun>
+# prednas 7;;
+- : int * int = (6, 8)
+# let prednas = fun t -> (predhodnik t, naslednik t);;
+val prednas : int -> int * int = <fun>
+# prednas 7;;
+- : int * int = (6, 8)
+# let naslednik = fun x -> x - 1 in naslednik 9;;
+- : int = 8
+# naslednik 6;;
+- : int = 7
+# let vsota = fun (a,b) -> (a+b);;
+val vsota : int * int -> int = <fun>
+# let razlika = fun (a,b) -> (a-b);;
+val razlika : int * int -> int = <fun>
+# let vsoraz = fun (x,y) -> (vsota(x,y),razlika(x,y));;
+val vsoraz : int * int -> int * int = <fun>
+# vsoraz (4,5);;
+- : int * int = (9, -1)
+# let nekaj = fun x y -> x*2 + y*4;;
+val nekaj : int -> int -> int = <fun>
+# let nekaj = fun x -> fun y -> x*2 + y*4;;
+val nekaj : int -> int -> int = <fun>
+# nekaj 4 3;;
+- : int = 20
+# let nekaj = fun x y z -> z*(x*2 + y*4);;
+val nekaj : int -> int -> int -> int = <fun>
+# nekaj 4 3;;
+- : int -> int = <fun>
+# nekaj 4 3 4;;
+- : int = 80
+# nekaj 4;;
+- : int -> int -> int = <fun>
+# let naslednik x = x +1;;
+val naslednik : int -> int = <fun>
+# let nekaj x y z = z*(x*2 + y*4);;
+val nekaj : int -> int -> int -> int = <fun>
+# let produkt a b = a*b;;
+val produkt : int -> int -> int = <fun>
+# let produkt (a,b) = a*b;;
+val produkt : int * int -> int = <fun>
+# let rec sestejDo z =
+  if (z = 0) then 0
+  else z + sestejDo (z-1);;
+val sestejDo : int -> int = <fun>
+# sestejDo 5;;
+- : int = 15
+# sestejDo 3;;
+- : int = 6
+# let rec fib n =
+  if (n < 3) then 1
+  else fib (n-1) + fib (n-2);;
+val fib : int -> int = <fun>
+# fib 9;;
+- : int = 34
+# let rec fak n =
+  if (n = 1) then 1
+  else n * fak n;;
+val fak : int -> int = <fun>
+# let rec fak n = 
+  if (n = 1) then 1
+  else n * fak (n-1);;
+val fak : int -> int = <fun>
+# fak 1;;
+- : int = 1
+# fak 9;;
+- : int = 72
+# let rec sezU n =
+  if (n = 0) then []
+  else n :: sezU (n-1);;
+val sezU : int -> int list = <fun>
+# sezU 3;;
+- : int list = [3; 2; 1]
+# let rec sezU n =
+  if (n = 0) then []
+  else sezU (n-1)@[n];;
+val sezU : int -> int list = <fun>
+# sezU 3;;
+- : int list = [1; 2; 3]
+# let rec sestejS n =
+  if ((List.tl n) = [])then List.hd n
+  else (List.hd n) + sestejS (List.tl n);;
+val sestejS : int list -> int = <fun>
+# sestejS (sezU 4);;
+- : int = 10
+# sestejS [4;5;6];;
+- : int = 15
+# let rec recNas n =
+  if (n=0) then 1
+  else 1 + recNas (n-1);;    
+val recNas : int -> int = <fun>
+# recNas 9;;
+- : int = 10
+# let rec recPreh n =
+  if (n = 1) then 0
+  else 1 + recPreh (n-1);;
+val recPreh : int -> int = <fun>
+# recPreh 9;;
+- : int = 8
+
+-------------------------------------------------------------------------------
+
+# let rec pomnSez sez x =
+  if (sez = []) then []
+  else (List.hd sez * x):: pomnSez (List.tl sez) x;;
+val pomnSez : int list -> int -> int list = <fun>
+# pomnSez [5;6;7;4;3;2;4;6;7] 8;;
+- : int list = [40; 48; 56; 32; 24; 16; 32; 48; 56]
+# let kvadriraj x = x*x;;
+val kvadriraj : int -> int = <fun>
+# let rec kvadEl sez = 
+  if (sez = []) then []
+  else (List.hd sez * List.hd sez):: kvadEl (List.tl sez);;
+val kvadEl : int list -> int list = <fun>
+# kvadEl [5;6;7;4;3;2;4;6;7];;
+- : int list = [25; 36; 49; 16; 9; 4; 16; 36; 49]
+# let rec kvadEl sez =
+  if (sez = []) then []
+  else (kvadriraj (List.hd sez)) :: kvadEl (List.tl sez);;
+val kvadEl : int list -> int list = <fun>
+# let rec izpisi sez n =
+  if (sez = []) then 0
+  else if (n <= 0) then 0
+  else if (n = 1) then List.hd sez
+  else izpisi (List.tl sez) (n-1);;
+val izpisi : int list -> int -> int = <fun>
+# izpisi [5;6;7;4;3;2;4;6;7] 6;;
+- : int = 2
+# izpisi [5;6;7;4;3;2;4;6;7] 20;;
+- : int = 0
+# let naslednik x = x + 1;;
+val naslednik : int -> int = <fun>
+# let predhodnik x = x -1;;
+val predhodnik : int -> int = <fun>
+# let bla = fun f -> fun x -> (f x);;
+val bla : ('a -> 'b) -> 'a -> 'b = <fun>
+# bla predhodnik 4;;
+- : int = 3
+# bla naslednik 4;;
+- : int = 5
+# List.map naslednik [5;6;7;8;2;4];;
+- : int list = [6; 7; 8; 9; 3; 5]
+# List.map (fun x -> x*x) [5;6;7;8;2;4];;
+- : int list = [25; 36; 49; 64; 4; 16]
+# List.map (fun x -> x*4) [5;6;7;8;2;4];;
+- : int list = [20; 24; 28; 32; 8; 16]
+# List.map (fun x ->  -x) [5;6;7;8;2;4];;
+- : int list = [-5; -6; -7; -8; -2; -4]
+# let velikeMale x =
+  if (int_of_char x < 97) then (char_of_int(int_of_char x +32))
+  else (char_of_int(int_of_char x -32));;
+val velikeMale : char -> char = <fun>
+# List.map velikeMale ['e';'R';'Z';'a'];;
+- : char list = ['E'; 'r'; 'z'; 'A']
+# List.filter (fun x -> x < 1) [20; 24; 28; 32; 8; 16];;
+- : int list = []
+# List.filter (fun x -> x < 22) [20; 24; 28; 32; 8; 16];;
+- : int list = [20; 8; 16]
+# List.filter (fun x -> true) [true;2<1;4=4;7>3];;
+- : bool list = [true; false; true; true]
+# List.filter (fun x -> x=true) [true;2<1;4=4;7>3];;
+- : bool list = [true; true; true]
+# List.filter (fun x -> x mod 2 == 0) [20; 24; 28; 32; 8; 16];;
+- : int list = [20; 24; 28; 32; 8; 16]
+# List.filter (fun x -> x mod 2 == 0) [20; 1;4;3;6;7;8];;
+- : int list = [20; 4; 6; 8]
+# List.for_all (fun x -> x mod 2 == 0) [20; 1;4;3;6;7;8];;
+- : bool = false
+# List.for_all (fun x -> x mod 2 == 0) [20; 24; 28; 32; 8; 16];;
+- : bool = true
+# let vVel x =
+  if (int_of_char x < 97) then x
+  else char_of_int(int_of_char x - 32);;
+val vVel : char -> char = <fun>
+# vVel 'r';;
+- : char = 'R'
+# vVel 'T';;
+- : char = 'T'
+# let prvaPol x =
+  if (int_of_char (vVel x) < 77) then true
+  else false;;
+val prvaPol : char -> bool = <fun>
+# prvaPol 'o';;
+- : bool = false
+# prvaPol 'a';;
+- : bool = true
+# prvaPol 'L';;
+- : bool = true
+# List.for_all prvaPol ['a';'B';'l'];;
+- : bool = true
+# List.for_all prvaPol ['a';'B';'z'];;
+- : bool = false
+
+-------------------------------------------------------------------------------
+
+# let t = 3;;
+val t : int = 3
+# let t = 5;;
+val t : int = 5
+# let t = '3';;
+val t : char = '3'
+# let i = ref 0;;
+val i : int ref = {contents = 0}
+# i;;
+- : int ref = {contents = 0}
+# !i;;
+- : int = 0
+# i := 5;;
+- : unit = ()
+# !i;;
+- : int = 5
+# i := !i +1;;
+- : unit = ()
+# !i;;
+- : int = 6
+# let r = ref 1
+  in while !r < 11 do 
+  print_int !r;
+  print_string " ";
+  r := !r +1
+  done;;
+1 2 3 4 5 6 7 8 9 10 - : unit = ()
+# let r = ref 1
+  in while !r < 11 do 
+  print_int !r;
+  print_string " ";      
+  print_string "bla";
+  print_string " ";
+  r := !r +1
+  done;;  
+1 bla 2 bla 3 bla 4 bla 5 bla 6 bla 7 bla 8 bla 9 bla 10 bla - : unit = ()
+# for i=0 to 4 do print_int i; print_string "\n" done;;
+0
+1
+2
+3
+4
+- : unit = ()
+# for i=0 to 11 do print_int i; print_string " " done;;
+0 1 2 3 4 5 6 7 8 9 10 11 - : unit = ()
+# let teden dan = match dan with
+  | 1 -> "ponedeljek"
+  | 2 -> "torek"
+  | 3 -> "sreda"
+  | 4 -> "cetrtek"
+  | 5 -> "petek"
+  | _ -> "vikend";;
+val teden : int -> string = <fun>
+# teden 3;;
+- : string = "sreda"
+# teden 9;;
+- : string = "vikend"
+# let implikacija (a,b) = match (a,b) with
+  | (true,false) -> false
+  | _ -> true;;
+val implikacija : bool * bool -> bool = <fun>
+# implikacija (true,true);;
+- : bool = true
+# implikacija (true,false);;
+- : bool = false
+# let vecje x = match (x > 10) with
+  |true -> "je vecje"
+  |false -> "ni vecje";;
+val vecje : int -> string = <fun>
+# vecje 14;;
+- : string = "je vecje"
+# let prvapol x = match x with
+  | 'a'..'l' -> true
+  | 'A'..'L' -> true
+  | _ -> false;;
+val prvapol : char -> bool = <fun>
+# prvapol 'a';;
+- : bool = true
+# prvapol 'z';;
+- : bool = false
+# prvapol 'B';;
+- : bool = true
+# let je_samoglasnik crka = match crka with 
+  | 'a' | 'e' | 'i' | 'o' | 'u' -> true
+  | 'A' | 'E' | 'I' | 'O' |    'U' -> true
+  | _ -> false;;
+val je_samoglasnik : char -> bool = <fun>
+# je_samoglasnik 'I';;
+- : bool = true
+# je_samoglasnik 'z';;
+- : bool = false
+# let vsotaAliProdukt (a,b,kaj) = match (a,b,kaj) with
+  |(_,_,"vsota") -> (a+b, (a,b,kaj))
+  |(_,_,"produkt") as bla -> (a*b, bla)
+  |_ as bla -> (0,bla);;
+val vsotaAliProdukt : int * int * string -> int * (int * int * string) = <fun>
+# vsotaAliProdukt (2,4,"vsota");;
+- : int * (int * int * string) = (6, (2, 4, "vsota"))
+# vsotaAliProdukt (2,4,"produkt");;
+- : int * (int * int * string) = (8, (2, 4, "produkt"))
+# vsotaAliProdukt (2,4,"nekaj");;
+- : int * (int * int * string) = (0, (2, 4, "nekaj"))
+# let vsotaAliProdukt (a,b,kaj) = match (a,b,kaj) with
+  |(_,_,"vsota") when (a>0 && b>0) -> (a+b, (a,b,kaj))
+  |(_,_,"produkt") as bla -> (a*b, bla)
+  |_ as bla -> (0,bla);;  
+val vsotaAliProdukt : int * int * string -> int * (int * int * string) = <fun>
+# vsotaAliProdukt (2,4,"vsota");;
+- : int * (int * int * string) = (6, (2, 4, "vsota"))
+# vsotaAliProdukt (0,4,"vsota");;
+- : int * (int * int * string) = (0, (0, 4, "vsota"))
+# let rec dolzina sez = match sez with 
+  | [] -> 0
+  |g::r -> 1 + dolzina r;;
+val dolzina : 'a list -> int = <fun>
+# dolzina [2;4;5;76];;
+- : int = 4
+# let glava sez = match sez with
+  |[] -> 0
+  |g1::g2::r -> g2
+  |g::r -> g;;
+val glava : int list -> int = <fun>
+# glava [3;4];;
+- : int = 4
+# let rec fib n = match n with
+  |1 -> 1
+  |2 -> 1
+  | _ -> fib (n-1) + fib (n-2);;
+val fib : int -> int = <fun>
+# fib 7;;
+- : int = 13
+# let rec fibSez n = match n with 
+    | 1 -> [1]
+    | _ -> fib n :: fibSez (n-1);;    
+val fibSez : int -> int list = <fun>
+# fibSez 7;;
+- : int list = [13; 8; 5; 3; 2; 1; 1]
+# let rec obrni sez = match sez with
+  | [] -> []
+  | g::r -> obrni r @ [g];;
+val obrni : 'a list -> 'a list = <fun>
+# obrni [13; 8; 5; 3; 2; 1; 1];;
+- : int list = [1; 1; 2; 3; 5; 8; 13]
+# obrni (fibSez 9);;
+- : int list = [1; 1; 2; 3; 5; 8; 13; 21; 34]
+
+-------------------------------------------------------------------------------
+
+# let pivot_split pivot seznam = 
+(List.filter (fun x -> x < pivot) seznam, List.filter (fun x -> x >= pivot) seznam);;
+val pivot_split : 'a -> 'a list -> 'a list * 'a list = <fun>
+# pivot_split 8 [6;1;3;4;8;9;12;57];;
+- : int list * int list = ([6; 1; 3; 4], [8; 9; 12; 57])
+# let rec quick sez= match sez with
+  |[] -> []
+  |g::r -> let (podsez1,podsez2) = pivot_split g r
+  in
+  (quick podsez1) @ [g] @ (quick podsez2);;
+val quick : 'a list -> 'a list = <fun>
+# quick [6;1;3;4;8;9;12;57];;
+- : int list = [1; 3; 4; 6; 8; 9; 12; 57]
+# quick [4;6;2;5;1];;
+- : int list = [1; 2; 4; 5; 6]
+# [|4;6;2;5;1|];;
+- : int array = [|4; 6; 2; 5; 1|]
+# Array.make 7 1;;
+- : int array = [|1; 1; 1; 1; 1; 1; 1|]
+# Array.make 7 'z';;
+- : char array = [|'z'; 'z'; 'z'; 'z'; 'z'; 'z'; 'z'|]
+# let polje1 = Array.make 7 1;;
+val polje1 : int array = [|1; 1; 1; 1; 1; 1; 1|]
+# let polje2 = Array.make 7 'z';;
+val polje2 : char array = [|'z'; 'z'; 'z'; 'z'; 'z'; 'z'; 'z'|]
+# polje1.(6);;
+- : int = 1
+# polje2.(6);;
+- : char = 'z'
+# polje1.(6) <- 3;;
+- : unit = ()
+# polje1;;
+- : int array = [|1; 1; 1; 1; 1; 1; 3|]
+# polje2.(6) <- 'l';;
+- : unit = ()
+# polje2;;
+- : char array = [|'z'; 'z'; 'z'; 'z'; 'z'; 'z'; 'l'|]
+# polje2.(3) <- 'l';;
+- : unit = ()
+# polje2;;
+- : char array = [|'z'; 'z'; 'z'; 'l'; 'z'; 'z'; 'l'|]
+# Array.length polje2;;
+- : int = 7
+# Array.make_matrix 3 2 9;;
+- : int array array = [|[|9; 9|]; [|9; 9|]; [|9; 9|]|]
+# let matrika = Array.make_matrix 3 2 9;;
+val matrika : int array array = [|[|9; 9|]; [|9; 9|]; [|9; 9|]|]
+# matrika.(0).(0);;
+- : int = 9
+# matrika.(0).(1) <- 3;;
+- : unit = ()
+# matrika;;
+- : int array array = [|[|9; 3|]; [|9; 9|]; [|9; 9|]|]
+# matrika.(2).(0) <- 3;;
+- : unit = ()
+# matrika;;
+- : int array array = [|[|9; 3|]; [|9; 9|]; [|3; 9|]|]
+
+-------------------------------------------------------------------------------
+
+(* 1. Naredi funkcijo, ki zdruzi dve polji.
+Primer uporabe:
+# polje1;;
+- : string array = [|"a"; "a"; "a"; "a"; "a"|]
+# polje2;;
+- : string array = [|"b"; "b"; "b"; "b"; "b"|]
+# zdruzi_polji polje1 polje2;;
+- : string array = [|"a"; "a"; "a"; "a"; "a"; "b"; "b"; "b"; "b"; 
+"b"|] *)
+
+let zdruzi_polji p1 p2 =
+ let p3 = Array.make (Array.length p1 + Array.length p2) p1.(0) 
+ in
+ let rec vpisi lp3 lp1 i j = match j with
+  | _ when (j = (Array.length lp1)-1) -> lp3.(i) <- lp1.(j)
+  | _ ->  lp3.(i) <- lp1.(j); vpisi lp3 lp1 (i+1) (j+1) in
+ vpisi p3 p1 0 0; vpisi p3 p2 (Array.length p1) 0; p3;;
+
+let zdruzi_polji2 p1 p2 =
+ let p3 = Array.make (Array.length p1 + Array.length p2) p1.(0) 
+ in
+ for i=0 to ((Array.length p1)-1) do p3.(i) <- p1.(i) done;
+ for i=0 to ((Array.length p2)-1) do p3.(i+Array.length p1) <- 
+ p2.(i) done;
+ p3;;
+
+(* 2.a Brez uporabe for zanke naredi funkcijo, ki naredi polje z 
+elementi od 1 do n.
+Primer uporabe:
+# naredi_polje_do 3;;
+- : int array = [|1; 2; 3|]
+# naredi_polje_do 5;;
+- : int array = [|1; 2; 3; 4; 5|]  *)
+
+let naredi_polje_do n =
+ let p = Array.make n 1 in
+ let rec vpisi polje i = match n with
+  | _ when (i = (n-1)) -> polje.(i) <- (i+1)
+  | _ -> polje.(i) <- (i+1); vpisi polje (i+1) in
+ vpisi p 0; p;;
+
+(* 2.b Enako kot 2.a, le da s for zanko *)
+
+let naredi_polje2_do n =
+ let p = Array.make n 1 in
+ for i=0 to (n-1) do p.(i) <- (i+1) done; p;;
+
+(* 3.a Z uporabo for zanke naredi funkcijo, ki naredi polje z 
+elementi od n do m. Primer uporabe:
+naredi_polje 3 5;;
+- : int array = [|3; 4; 5|] *)
+
+let naredi_polje n m =
+ let p = Array.make (m-n+1) 1 in
+ for i=0 to (m-n) do p.(i) <- (i+n) done; p;;
+
+(* 3.b Enako kot 3.a, le da brez for zanke *)
+
+let naredi_polje2 n m =
+ let p = Array.make (m-n+1) 1 in
+ let rec vpisi polje i = match n with
+  | _ when (i = (m-n)) -> polje.(i) <- (i+n)
+  | _ -> polje.(i) <- (i+n); vpisi polje (i+1) in
+ vpisi p 0; p;;
+
+(* 4. Naredi funkcijo, ki pretvori seznam v polje. Primer uporabe:
+v_polje [1;2;3;4;5];;
+- : int array = [|1; 2; 3; 4; 5|] *)
+
+let v_polje seznam =
+ let rec velikost s = match s with
+  | [] -> 0
+  | g::r -> 1 + velikost r in
+ let polje = Array.make (velikost seznam) (List.hd seznam) in
+ let rec vpisi sez i = match sez with
+  | [] -> polje
+  | g::r -> polje.(i) <- g; vpisi r (i+1) in
+ vpisi seznam 0;;
+
+(* 5. Naredi funkcijo, ki pretvori polje v seznam. Primer uporabe:
+# v_seznam [|1; 2; 3; 4; 5|];;
+- : int list = [1; 2; 3; 4; 5] *)
+
+let rec v_seznam polje =
+ let rec vpisi polje i seznam = match i with
+  | _ when (i = (Array.length polje)-1) -> seznam @ [polje.(i)]
+  | _ -> vpisi polje (i+1) (seznam @ [polje.(i)]) in
+ vpisi polje 0 [];;
+
+(* 6. Naredi funkcijo, ki naredi matriko dimenzije n * m. *)
+
+let naredi_matriko n m element =
+ let stolpec = Array.make n element in
+ let matrika = Array.make m stolpec in
+ matrika;;
+
+(* 7. Naredi funkcijo, ki vrne element matrike na polozaju n * m *)
+
+let vrni_element n m matrika = (matrika.(n-1)).(m-1);;
+
+-------------------------------------------------------------------------------
+
+# type trikotnik = {a:int; b:int; c:int};;
+type trikotnik = { a : int; b : int; c : int; }
+# let vrni_a nekaj = nekaj.a;;
+val vrni_a : trikotnik -> int = <fun>
+# let vrni_b nekaj = nekaj.b;;
+val vrni_b : trikotnik -> int = <fun>
+# let vrni_c nekaj = nekaj.c;;
+val vrni_c : trikotnik -> int = <fun>
+# let trkotnik = (2,6,6);;
+val trkotnik : int * int * int = (2, 6, 6)
+# let trikotnik1 = {a=2; b=6; c=6};;
+val trikotnik1 : trikotnik = {a = 2; b = 6; c = 6}
+# vrni_c trikotnik1;;
+- : int = 6
+# let vrni_prvega (a,b,c) = a;;
+val vrni_prvega : 'a * 'b * 'c -> 'a = <fun>
+# vrni_prvega trkotnik;;
+- : int = 2
+# type oseba = {ime:string; mutable priimek:string; starost:int; spol:char; student:bool};;
+type oseba = {
+  ime : string;
+  mutable priimek : string;
+  starost : int;
+  spol : char;
+  student : bool;
+}
+# let janez = {ime="Janez"; priimek="Kranjski"; starost=25; spol='m'; student=false};;
+val janez : oseba =
+  {ime = "Janez"; priimek = "Kranjski"; starost = 25; spol = 'm'; student = false}
+# let ana = {ime="Ana"; priimek="Banana"; starost=21; spol='z'; student=true};;
+val ana : oseba =
+  {ime = "Ana"; priimek = "Banana"; starost = 21; spol = 'z'; student = true}  
+# type par = {moz:oseba; zena:oseba};;
+type par = { moz : oseba; zena : oseba; }
+# let poroci m z = z.priimek <- m.priimek; {moz=m; zena=z};;
+val poroci : oseba -> oseba -> par = <fun>
+# janez.priimek;;
+- : string = "Kranjski"
+# janez.spol;;
+- : char = 'm'
+# poroci janez ana;;
+- : par =
+{moz =
+  {ime = "Janez"; priimek = "Kranjski"; starost = 25; spol = 'm';
+   student = false};
+ zena =
+  {ime = "Ana"; priimek = "Kranjski"; starost = 21; spol = 'z';
+   student = true}}
+# let nas_parcek = poroci janez ana;;
+val nas_parcek : par =
+  {moz =
+    {ime = "Janez"; priimek = "Kranjski"; starost = 25; spol = 'm';
+     student = false};
+   zena =
+    {ime = "Ana"; priimek = "Kranjski"; starost = 21; spol = 'z';
+     student = true}}  
+# type koordinate = float*float;;
+type koordinate = float * float	 
+# let koper:koordinate = (13.7, 45.5);;
+val koper : koordinate = (13.7, 45.5)
+# let ilirska:koordinate = (14.5, 45.5);;
+val ilirska : koordinate = (14.5, 45.5)
+# ilirska;;
+- : koordinate = (14.5, 45.5)
+# fst ilirska;;
+- : float = 14.5
+# let vrni_a (a,b) = a;;
+val vrni_a : 'a * 'b -> 'a = <fun>
+# vrni_a koper;;
+- : float = 13.7
+# type barva = Rdeca;;
+type barva = Rdeca
+# Rdeca;;
+- : barva = Rdeca
+# type barva = Frjola;;
+type barva = Frjola
+# Frjola;;
+- : barva = Frjola
+# type barva = Rdeca | Modra | Zelena | Rumena | Bela;;
+type barva = Rdeca | Modra | Zelena | Rumena | Bela
+# Modra;;
+- : barva = Modra
+# Rumena;;
+- : barva = Rumena
+# Frjola;;
+- : barva = Frjola
+# type material = Usnje | Jeans | Kasmir | Bombaz | Poliester;;
+type material = Usnje | Jeans | Kasmir | Bombaz | Poliester
+# type velikost = XS | S | M | L | XL | XXL;;
+type velikost = XS | S | M | L | XL | XXL
+# let anorak = (Zelena,Poliester,M);;
+val anorak : barva * material * velikost = (Zelena, Poliester, M)
+# let plasc = ((Kasmir,Bombaz), Rdeca, S);;
+val plasc : (material * material) * barva * velikost =
+  ((Kasmir, Bombaz), Rdeca, S)
+# type barva = RGB of int*int*int;;
+type barva = RGB of int * int * int
+# Rdeca;;
+- : barva = Rdeca
+# let crna:barva = RGB (0,0,0);;
+val crna : barva = RGB (0, 0, 0)
+# crna;;
+- : barva = RGB (0, 0, 0)
+type barva =
+    RGB of int * int * int
+  | BW of int
+  | CMYK of int * int * int * int
+# let bela:barva = BW 255;;
+val bela : barva = BW 255
+# let frjola:barva = CMYK (80,60,55,230);;
+val frjola : barva = CMYK (80, 60, 55, 230)
+# let je_RGB barva = match barva with
+  |RGB (a,b,c) when (a <= 255 && a >= 0  && b <= 255 && b >= 0 && c <= 255 && c >= 0) -> true
+  |CMYK (_,_,_,_) -> false
+  |BW _ -> false
+  |_ -> false;;
+val je_RGB : barva -> bool = <fun>
+# let crna:barva = RGB (0,0,0);;
+val crna : barva = RGB (0, 0, 0)
+# je_RGB crna;;
+- : bool = true
+# je_RGB frjola;;
+- : bool = false
+# let bez = RGB (60, 30, 256);;
+val bez : barva = RGB (60, 30, 256)
+# je_RGB bez;;
+- : bool = false
+# type placilo = Gotovina of int | Kartica of string*string*int;;
+type placilo = Gotovina of int | Kartica of string * string * int
+# let kruh = Gotovina 1;;
+val kruh : placilo = Gotovina 1
+# let hlace = Kartica ("Maestro", "Koper", 100);;
+val hlace : placilo = Kartica ("Maestro", "Koper", 100)
+# let grafikulja = Kartica ("VisaElectron", "NLB", 800);;
+val grafikulja : placilo = Kartica ("VisaElectron", "NLB", 800)
+# let sok = Gotovina 2;;
+val sok : placilo = Gotovina 2
+# sok;;
+- : placilo = Gotovina 2
+# hlace;;
+- : placilo = Kartica ("Maestro", "Koper", 100)
+# let vrniZnesek nakup = match nakup with
+  |Gotovina x -> x
+  |Kartica (_,_,x) -> x;;
+val vrniZnesek : placilo -> int = <fun>
+# vrniZnesek sok;;
+- : int = 2
+# vrniZnesek hlace;;
+- : int = 100
+# let januar = [sok;hlace;grafikulja;kruh];;
+val januar : placilo list =
+  [Gotovina 2; Kartica ("Maestro", "Koper", 100);
+   Kartica ("VisaElectron", "NLB", 800); Gotovina 1]
+# let rec skupniZnesek nakupi = match nakupi with
+  |[] -> 0
+  |g::r -> vrniZnesek g + skupniZnesek r;;
+val skupniZnesek : placilo list -> int = <fun>
+# skupniZnesek januar;;
+- : int = 903
+# skupniZnesek [kruh;hlace;sok];;
+- : int = 103
+# type oseba = Kralj | Papez of string*string*int | Vitez of string |Kmet of string;;
+type oseba =
+    Kralj
+  | Papez of string * string * int
+  | Vitez of string
+  | Kmet of string
+# let monaski = Kralj;;
+val monaski : oseba = Kralj
+# let pavel = Papez ("Janez", "Pavel", 2);;
+val pavel : oseba = Papez ("Janez", "Pavel", 2)
+# let franci = Kmet "Franci";;
+val franci : oseba = Kmet "Franci"
+# let batman = Vitez "DarkVader";;
+val batman : oseba = Vitez "DarkVader"
+# let je_nadrejen (oseba1,oseba2) = match (oseba1,oseba2) with
+  |(Kralj,_) -> true
+  |(Papez _ , Vitez _) -> true
+  |(Vitez _ , Kmet _) -> true
+  |(Papez _ , Kmet _) -> true
+  |_ -> false;;
+val je_nadrejen : oseba * oseba -> bool = <fun>
+# je_nadrejen (batman,franci);;
+- : bool = true
+# je_nadrejen (batman,pavel);;
+- : bool = false
+# je_nadrejen (monaski,pavel);;
+- : bool = true
+# type plist = Nil | Elm of int * plist;;
+type plist = Nil | Elm of int * plist
+# let a = Elm (9,Elm(4,Elm(5,Nil)));;
+val a : plist = Elm (9, Elm (4, Elm (5, Nil)))
+# let rec prestej rSez = match rSez with
+  |Nil -> 0
+  |Elm (g,r) -> 1 + prestej r;;
+val prestej : plist -> int = <fun>
+# prestej a;;
+- : int = 3
+# let rec zmnozi rSez = match rSez with
+  |Nil -> 1
+  |Elm (g,r) -> g * zmnozi r;;
+val zmnozi : plist -> int = <fun>
+# zmnozi a;;
+- : int = 180
+
+-------------------------------------------------------------------------------
+
+# type seznam =
+  Nil
+  | Elm of int*seznam;;
+type seznam = Nil | Elm of int * seznam
+# let seznamcek = Elm (4,Elm(6,Elm(8,Nil)));;
+val seznamcek : seznam = Elm (4, Elm (6, Elm (8, Nil)))
+# let rec prestej sez = match sez with
+  |Nil -> 0
+  |Elm (g,r) -> 1 + prestej r;;
+val prestej : seznam -> int = <fun>
+# prestej seznamcek;;
+- : int = 3
+# let rec zmnozi sez = match sez with
+  |Nil -> 1
+  |Elm (g,r) -> g * zmnozi r;;
+val zmnozi : seznam -> int = <fun>
+# zmnozi seznamcek;;
+- : int = 192
+# type bin_tree =
+  |Nil
+  |Tree of bin_tree*int*bin_tree;;
+type bin_tree = Nil | Tree of bin_tree * int * bin_tree
+# let drevo = Tree (Tree (Tree (Nil,2,Nil),1,Nil),9,Tree (Tree (Nil,3,Nil),4,Tree(Nil,1,Nil)));;
+val drevo : bin_tree =
+  Tree (Tree (Tree (Nil, 2, Nil), 1, Nil), 9,
+   Tree (Tree (Nil, 3, Nil), 4, Tree (Nil, 1, Nil)))
+# let rec isciBd drevo x = match drevo with
+  |Nil -> false
+  |Tree (ldrevo,v,ddrevo) when ( x = v) -> true
+  |Tree (ldrevo,v,ddrevo) -> isciBd ldrevo x; isciBd ddrevo x;;
+val isciBd : bin_tree -> int -> bool = <fun>
+# isciBd drevo 4;;
+- : bool = true
+# isciBd drevo 8;;
+- : bool = false
+# type 'a p_bin_tree =
+  |Empty
+  |Tree of 'a p_bin_tree * 'a * 'a p_bin_tree;;
+type 'a p_bin_tree = Empty | Tree of 'a p_bin_tree * 'a * 'a p_bin_tree
+# Tree (Tree (Empty,4,Empty),5,Empty);;
+- : int p_bin_tree = Tree (Tree (Empty, 4, Empty), 5, Empty)
+# Tree (Tree (Empty,true,Empty),false,Empty);;
+- : bool p_bin_tree = Tree (Tree (Empty, true, Empty), false, Empty)
+# Tree (Tree (Empty,'z',Empty),'a',Empty);;
+- : char p_bin_tree = Tree (Tree (Empty, 'z', Empty), 'a', Empty)
+
+-------------------------------------------------------------------------------
+
+(* Definicija tipa *)
+type plist = Nil | Elm of int * plist;;
+(* deklaracija spremnlivke*)
+let a = Elm(1,Elm(2,Elm(3,Elm(4,Nil))));;
+(* Prestevanje elementov *)
+let rec stevilo l = match l with Nil -> 0 | Elm(v,t) -> 1 + stevilo t;;
+(* Fakulteta v seznamu *)
+let rec produkt l = match l with Nil -> 1 | Elm(v,t) -> v * produkt t;;
+(* Parametrizirano binarno drevo *)
+type 'a bin_tree =
+	Empty
+	| Node of 'a bin_tree * 'a * 'a bin_tree ;;
+(* Preslikava drevesa v seznam *)
+let rec list_of_tree = function
+	Empty -> []
+	| Node(lb, r, rb) -> (list_of_tree lb) @ (r :: (list_of_tree rb)) ;;
+(* Funkcija vstavljanje v drevo *)
+let rec insert x = function
+	Empty -> Node(Empty, x, Empty)
+	| Node(lb, r, rb) -> if x < r then Node(insert x lb, r, rb)
+	else Node(lb, r, insert x rb) ;;
+(* Funkcija pretvorbe seznama v drevo *)
+let rec tree_of_list = function
+	[] -> Empty
+	| h :: t -> insert h (tree_of_list t) ;;
+(* Funkcija sortiraj seznam, preko pretvorbe v drevo*)
+let sort x = list_of_tree (tree_of_list x) ;;
+(* definicija tipa *)
+type 'a stack = { mutable ind:int; size:int; mutable elts:'a array } ;;
+(* inicializacija sklada *)
+let init_stack n = {ind=0; size=n; elts =[||]} ;;
+(* funkcije za delo s skladom *)
+exception Stack_empty ;;
+exception Stack_full ;;
+let pop p =
+    if p.ind = 0 then raise Stack_empty
+    else (p.ind <- p.ind - 1; p.elts.(p.ind)) ;;
+
+let push e p =
+    if p.elts = [||] then
+    (p.elts <- Array.create p.size e;
+    p.ind <- 1)
+    else if p.ind >= p.size then raise Stack_full
+    else (p.elts.(p.ind) <- e; p.ind <- p.ind + 1) ;;
+(* Uporaba *)
+let p = init_stack 4 ;;
+push 1 p ;;
+for i = 2 to 5 do push i p done ;;
+p ;;
+pop p ;;
+pop p ;;
+(* Sklad z neomejenim st elementov*)
+type 'a stack =
+    {mutable ind:int ; mutable size:int ; mutable elts:'a array} ;;
+(* popravimo push funkcijo *)
+let push e p =
+    if p.elts = [||]
+    then
+        begin
+            p.elts <- Array.create p.size e;
+            p.ind <- 1
+        end
+    else if p.ind >= p.size then
+        begin
+            let nt = 2 * p.size in
+            let nv = Array.create nt e in
+            for j=0 to p.size-1 do nv.(j) <- p.elts.(j) done ;
+            p.elts <- nv;
+            p.size <- nt;
+            p.ind <- p.ind + 1
+        end
+    else
+        begin
+            p.elts.(p.ind) <- e ;
+            p.ind <- p.ind + 1
+        end ;;
+(* Primeri *)
+let p = init_stack 4 ;;
+for i = 1 to 5 do push i p done ;;
+p ;;
+
+-------------------------------------------------------------------------------
+AGREGACIJA
+(* razred hisa *)
+class hisa (barva, okna, vrata, sobe, etaze) =
+ object
+  (* spremenljivke instance *)
+  val mutable barva = (barva :string)
+  val mutable st_oken = (okna :int)
+  val mutable st_vrat = (vrata :int)
+  val mutable st_sob = (sobe :int)
+  val mutable st_etaz = (etaze :int)
+  val visina_etaze = 3
+  val velikost_sobe = 5
+  (* metode *)
+  method get_barva = barva
+  method get_st_sob = st_sob
+  method set_barva novabarva = barva <- novabarva
+  method kvadratura () = velikost_sobe * st_sob
+  method visina () = visina_etaze * st_etaz
+ end;;
+
+(* naredimo objekt hisa *)
+let nasaHisa = new hisa ("bela", 42, 21, 20, 5);;
+let sosedovaHisa = new hisa ("zelena", 1, 1, 1, 1);;
+
+let visja (hisa1, hisa2) =
+ if (hisa1#visina() > hisa2#visina()) then "prva hisa je visja"
+ else "druga hisa je visja";;
+
+visja (nasaHisa, sosedovaHisa);;
+
+(* agregacija - mesto agregira hise *)
+class mesto ime =
+ object
+  val ime = (ime :string)
+  val mutable st_prebivalcev = 2 (* riko in senad *)
+  val mutable st_his = 0
+  val mutable hise = ([] :hisa list)
+
+  method get_ime = ime
+  method get_prebivalci = st_prebivalcev
+  method get_hise = st_his
+
+  method visine = List.map (fun h -> h#visina()) hise
+  method dodajHiso hisa =
+    hise <- hisa::hise;
+    st_prebivalcev <- (st_prebivalcev + 2);
+    st_his <- (st_his+1)
+ end;;
+
+let koper = new mesto "Koper";;
+koper#get_hise;;
+koper#get_prebivalci;;
+koper#dodajHiso nasaHisa;;
+koper#dodajHiso sosedovaHisa;;
+koper#get_hise;;
+koper#get_prebivalci;;
+koper#visine;;
+
+-------------------------------------------------------------------------------
+DEDOVANJE
+(* razred hisa *)
+class hisa (barva, okna, vrata, sobe, etaze) =
+ object
+  (* spremenljivke instance *)
+  val mutable barva = (barva :string)
+  val mutable st_oken = (okna :int)
+  val mutable st_vrat = (vrata :int)
+  val mutable st_sob = (sobe :int)
+  val mutable st_etaz = (etaze :int)
+  val visina_etaze = 3
+  val velikost_sobe = 5
+  (* metode *)
+  method get_barva = barva
+  method get_st_sob = st_sob
+  method set_barva novabarva = barva <- novabarva
+  method kvadratura () = velikost_sobe * st_sob
+  method visina () = visina_etaze * st_etaz
+ end;;
+
+(* naredimo objekt hisa *)
+let nasaHisa = new hisa ("bela", 42, 21, 20, 5);;
+let sosedovaHisa = new hisa ("zelena", 1, 1, 1, 1);;
+
+let visja (hisa1, hisa2) =
+ if (hisa1#visina() > hisa2#visina()) then "prva hisa je visja"
+ else "druga hisa je visja";;
+
+visja (nasaHisa, sosedovaHisa);;
+
+(* dedovanje - vikend podeduje od hise *)
+class vikend (barva, okna, vrata, sobe, etaze, pozicija) =
+ object
+  inherit hisa (barva, okna, vrata, sobe, etaze)
+  val kul_pozicija = (pozicija :bool)
+  method je_kul = kul_pozicija
+end;;
+
+let rogla = new vikend ("bel", 6, 2, 3, 2, true);;
+
+(* klicemo lahko vse metode nadrazreda *)
+rogla#kvadratura();;
+rogla#visina();;
+rogla#je_kul;;
+
+-------------------------------------------------------------------------------
+HISA
+(* razred hisa *)
+class hisa (barva, okna, vrata, sobe, etaze) =
+ object
+  (* spremenljivke instance *)
+  val mutable barva = (barva :string)
+  val mutable st_oken = (okna :int)
+  val mutable st_vrat = (vrata :int)
+  val mutable st_sob = (sobe :int)
+  val mutable st_etaz = (etaze :int)
+  val visina_etaze = 3
+  val velikost_sobe = 5
+  (* metode *)
+  method get_barva = barva
+  method get_st_sob = st_sob
+  method set_barva novabarva = barva <- novabarva
+  method kvadratura () = velikost_sobe * st_sob
+  method visina () = visina_etaze * st_etaz
+ end;;
+
+(* naredimo objekt hisa *)
+let nasaHisa = new hisa ("bela", 42, 21, 20, 5);;
+let sosedovaHisa = new hisa ("zelena", 1, 1, 1, 1);;
+
+let visja (hisa1, hisa2) =
+ if (hisa1#visina() > hisa2#visina()) then "prva hisa je visja"
+ else "druga hisa je visja";;
+
+visja (nasaHisa, sosedovaHisa);;
+
+-------------------------------------------------------------------------------
+PREVOZ
+(* razred prevozno sredstvo *)
+class prevozno_sredstvo povpHitrost =
+ object
+ val povpHitrost = (povpHitrost :int)
+ val mutable st_koles = 0
+ val mutable st_sedezev = 0
+ val mutable st_vrat = 0
+
+ method set_st_koles kolesa = st_koles <- kolesa
+ method set_st_sedezev sedezi = st_sedezev <- sedezi
+ method set_st_vrat vrata = st_vrat <- vrata
+
+ method cas razdalja = (float_of_int razdalja) /. (float_of_int povpHitrost)
+
+end;;
+
+let sleper = new prevozno_sredstvo 45;;
+let rolerji = new prevozno_sredstvo 15;;
+sleper#set_st_koles 19;;
+sleper#set_st_sedezev 3;;
+sleper#set_st_vrat 2;;
+rolerji#set_st_koles 8;;
+rolerji#set_st_sedezev 1;;
+rolerji#set_st_vrat 0;;
+sleper#cas 14;;
+rolerji#cas 14;;
+
+-------------------------------------------------------------------------------
+ABSTRACT
+(* abstrakten razred - uporabimo besedo virtual *)
+class virtual lik barva stranice =
+ object
+  val barva = (barva :string)
+  val st_stranic = (stranice :int)
+  method virtual ploscina : int
+  method virtual obseg : int
+end;;
+
+(* kvadrat mora definirati ploscino in obseg *)
+class kvadrat barva a =
+ object
+ inherit lik barva 4
+ val a = (a :int)
+ method ploscina = a * a
+ method obseg = 4 * a
+end;;
+
+-------------------------------------------------------------------------------
+INICIALIZACIJA
+(* self in super *)
+class pravokotnik a b =
+ object
+  val a = a
+  val b = b
+  val mutable barva = ""
+  method vrni_a = a
+  method vrni_b = b
+  method vrni_barva = barva
+  method pobarvaj novabarva = barva <- novabarva
+  method ploscina () = a * b
+  method obseg () = (2*a) + (2*b)
+  method izpisiStranice () =
+   "stranica a: " ^ string_of_int (a) ^
+   " stranica b: " ^ string_of_int (b)
+end;;
+
+(* s super klicemo metodo starsa *)
+class skatla a b c =
+ object (self)
+ inherit pravokotnik a b as super
+ val c = c
+ method povrsina() = (super#ploscina() + b*c + a*c)*2
+ method izpisiStranice() =
+   super#izpisiStranice() ^ " stranica c: " ^ string_of_int c
+end;;
+
+(* naredimo pravokotnik *)
+let pravokotnik4 = new pravokotnik 5 10;;
+pravokotnik4#izpisiStranice();;
+
+(* naredimo skatlo *)
+let skatla1 = new skatla 5 6 7;;
+skatla1#povrsina();;
+skatla1#izpisiStranice();;
+
+(* inicializacija *)
+class skatla a b c =
+ object (self)
+ inherit pravokotnik a b as super
+ initializer print_string ("Naredim skatlo z robovi "^ string_of_int a ^" "^ string_of_int b ^" "^ string_of_int c ^ "\n")(*; ignore(new skatla a b c)*)
+ val c = c
+ method povrsina() = (super#ploscina() + b*c + a*c)*2
+ method izpisiStranice() =
+   super#izpisiStranice() ^ " stranica c: " ^ string_of_int c
+end;;
+
+let skatla2 = new skatla 6 7 8;;
+
+-------------------------------------------------------------------------------
+PRAVOKOTNIK
+(* ponovitev *)
+class pravokotnik a b =
+ object
+  val a = a
+  val b = b
+  val mutable barva = ""
+  method vrni_a = a
+  method vrni_b = b
+  method vrni_barva = barva
+  method pobarvaj novabarva = barva <- novabarva
+  method ploscina () = a * b
+end;;
+
+let pravokotnik1 = new pravokotnik 5 12;;
+let pravokotnik2 = new pravokotnik 5 2;;
+
+pravokotnik1#pobarvaj "rdec";;
+pravokotnik2#pobarvaj "plav";;
+pravokotnik1#ploscina();;
+pravokotnik2#ploscina();;
+
+let zlepiPravokotnika (p1, p2) =
+ if (p1#vrni_a = p2#vrni_a)
+  then new pravokotnik p1#vrni_a (p1#vrni_b + p2#vrni_b)
+ else
+  if (p1#vrni_b = p2#vrni_b)
+   then new pravokotnik (p1#vrni_a + p2#vrni_a) p1#vrni_b
+  else
+   new pravokotnik 0 0;;
+
+let pravokotnik3 = zlepiPravokotnika (pravokotnik1, pravokotnik2);;
+pravokotnik3#vrni_b;;
+pravokotnik3#vrni_a;;
+pravokotnik3#ploscina();;
+pravokotnik3#ploscina() = pravokotnik1#ploscina() + pravokotnik2#ploscina();;
+
+(* podrazred pravokotnika *)
+class kvadrat a =
+ object
+ inherit pravokotnik a 0
+ method ploscina () = a * a
+end;;
+
+let kvadrat1 = new kvadrat 5;;
+
+-------------------------------------------------------------------------------
+PRIVATE
+(* primer privatne metode *)
+class stavek besedilo =
+ object (self)
+ val besedilo = (besedilo :string)
+ method vrni_besedilo = besedilo
+
+ method private explode besedilo =
+  let rec expl i l =
+   if (i < 0) then l
+   else expl (i-1) (besedilo.[i]::l)
+  in
+ expl (String.length besedilo - 1) []
+
+ method private implode seznam =
+  let izpis = String.create (List.length seznam) in
+  let rec implode2 i s = match s with
+   | [] -> izpis
+   | c::s -> izpis.[i] <- c; implode2 (i+1) s in
+  implode2 0 seznam
+
+ method obrni_besedilo () =
+  self#implode(List.rev (self#explode(besedilo)))
+end;;
+
+-------------------------------------------------------------------------------
+SELF-SUPER
+(* razred racunalnik *)
+class pc (mhz, jedra, ram, disk, hladilnik) =
+ object
+ val mhz = mhz
+ val jedra = jedra
+ val ram = ram
+ val disk = disk
+ val hladilnik = hladilnik
+ method poraba () = (hladilnik + (mhz * jedra))/60
+ method get_jedra = jedra
+end;;
+
+let nasSuperRacunalnik = new pc (3000, 2048, 5000000, 100000000, 512);;
+nasSuperRacunalnik#poraba();;
+
+class prenosnik (mhz, jedra, ram, disk, hladilnik, teza) =
+ object (self)
+ inherit pc (mhz, jedra, ram, disk, hladilnik) as super
+ val teza = teza
+ method poraba () = super#poraba() / 2
+end;;
+
+let prenosnik = new prenosnik (1500, 2, 2048, 80000, 50, 1);;
+prenosnik#poraba();;
+
+-------------------------------------------------------------------------------
+PRVIMODUL
+let povecaj1 x = x+1;;
+let kvadrat x = x*x;;
+let pomanjsaj1 x = x-1;;
+let kubik x = x*x*x;;
+
+-------------------------------------------------------------------------------
+DRUGIMODUL
+print_int (PrviModul.povecaj1(PrviModul.kvadrat 5));;
+
+-------------------------------------------------------------------------------
+MOJJEZIK
+
+(* vmesnik *)
+module type SEZNAM =
+ sig
+  val sestej : int list -> int
+  val obrni : 'a list -> 'a list
+  val je_palindrom : int list -> bool
+ end;;
+
+(* implementacija modula *)
+module Seznam =
+ struct
+
+let rec sestej seznam =
+ if (seznam = []) then 0
+ else (List.hd seznam) + sestej (List.tl seznam)
+
+let rec vrni seznam n = match seznam with
+ | [] -> 0
+ | _ when (n<=0) -> 0
+ | g::r when (n=1) -> g
+ | g::r -> vrni r (n-1)
+
+let rec obrni seznam = match seznam with
+ | [] -> []
+ | g::r -> (obrni r) @ [g]
+
+let je_palindrom seznam =
+ let rec vrni seznam n = match seznam with
+ | [] -> 0
+ | _ when (n<=0) -> 0
+ | g::r when (n=1) -> g
+ | g::r -> vrni r (n-1) in
+ let dolzina = List.length seznam in
+ let rec primerjaj i j = match i with
+  | _ when (i = j) -> true
+  | _ when ((vrni seznam i) != (vrni seznam j)) -> false
+  | _ -> primerjaj (i+1) (j-1)
+ in
+ primerjaj 1 dolzina
+
+ end;;
+
+(* vmesnik za polje *)
+module type POLJE =
+ sig
+  val naredi_matriko : int -> int -> 'a -> 'a array array
+  val v_polje : 'a list -> 'a array
+ end;;
+
+module Polje =
+ struct
+let v_polje seznam =
+ let rec velikost s = match s with
+  | [] -> 0
+  | g::r -> 1 + velikost r in
+ let polje = Array.make (velikost seznam) (List.hd seznam) in
+ let rec vpisi sez i = match sez with
+  | [] -> polje
+  | g::r -> polje.(i) <- g; vpisi r (i+1) in
+ vpisi seznam 0
+
+let naredi_matriko n m element =
+ let stolpec = Array.make n element in
+ let matrika = Array.make m stolpec in
+ matrika
+
+let zdruzi_polji2 p1 p2 =
+ let p3 = Array.make (Array.length p1 + Array.length p2) p1.(0) in
+ for i=0 to ((Array.length p1)-1) do p3.(i) <- p1.(i) done;
+ for i=0 to ((Array.length p2)-1) do p3.(i+Array.length p1) <- p2.(i) done;
+ p3
+
+let naredi_polje_do n =
+ let p = Array.make n 1 in
+ let rec vpisi polje i = match n with
+  | _ when (i = (n-1)) -> polje.(i) <- (i+1)
+  | _ -> polje.(i) <- (i+1); vpisi polje (i+1) in
+ vpisi p 0; p
+ end;;
+
+(* Vmesnik za Nas *)
+module type NAS =
+sig
+val kvadmat : int list list -> int list list 
+end;;
+
+module Nas = 
+struct
+let kvadriraj x = x*x
+
+let kvadsez sez = List.map kvadriraj sez
+
+let rec kvadmat mat =
+if ((List.tl mat) = []) then [kvadsez (List.hd mat)]
+else (kvadsez (List.hd mat)) :: (kvadmat (List.tl mat))
+end;;
+
+module Seznam = (Seznam:SEZNAM);;
+module Polje = (Polje:POLJE);;
+module Nas = (Nas:NAS);;
+
+-------------------------------------------------------------------------------
+POLJA.ml
+
+let naredi_polje_do n =
+ let p = Array.make n 1 in
+ let rec vpisi polje i = match n with
+  | _ when (i = (n-1)) -> polje.(i) <- (i+1)
+  | _ -> polje.(i) <- (i+1); vpisi polje (i+1) in
+ vpisi p 0; p;;
+
+let v_polje seznam =
+ let rec velikost s = match s with
+  | [] -> 0
+  | g::r -> 1 + velikost r in
+ let polje = Array.make (velikost seznam) (List.hd seznam) in
+ let rec vpisi sez i = match sez with
+  | [] -> polje
+  | g::r -> polje.(i) <- g; vpisi r (i+1) in
+ vpisi seznam 0;;
+
+let naredi_matriko n m element =
+ let stolpec = Array.make n element in
+ let matrika = Array.make m stolpec in
+ matrika;;
+ 
+-------------------------------------------------------------------------------
+POLJA.mli
+ (* vmesnik za polje *)
+val naredi_matriko : int -> int -> 'a -> 'a array array
+val v_polje : 'a list -> 'a array
+
+-------------------------------------------------------------------------------
+SEZNAM.ml
+let rec sestej seznam =
+ if (seznam = []) then 0
+ else (List.hd seznam) + sestej (List.tl seznam);;
+
+let je_palindrom seznam =
+ let rec vrni seznam n = match seznam with 
+ | [] -> 0
+ | _ when (n<=0) -> 0
+ | g::r when (n=1) -> g
+ | g::r -> vrni r (n-1) in
+ let dolzina = List.length seznam in
+ let rec primerjaj i j = match i with
+  | _ when (i = j) -> true
+  | _ when ((vrni seznam i) != (vrni seznam j)) -> false
+  | _ when ((vrni seznam i) = (vrni seznam (i+1))) -> true
+  | _ -> primerjaj (i+1) (j-1)
+ in
+ primerjaj 1 dolzina;;
+
+let rec primerjaj s1 s2 = match s1 with
+ | [] when (s2 = []) -> true
+ | [] -> false
+ | _ when (s2 = []) -> false
+ | g::r -> primerjaj r (List.tl s2);;
+
+-------------------------------------------------------------------------------
+SEZNAM.mli
+(* vmesnik za seznam *)
+val sestej : int list -> int
+
+-------------------------------------------------------------------------------
+OCENA.ml
+module Ocena =
+ struct
+  type ocena = { mutable vrednost: int; mutable predmet: string }
+  let spremeniVrednost m vrednost = m.vrednost <- vrednost
+  let spremeniPredmet m predmet = m.predmet <- predmet
+  let poglejOceno m = (m.vrednost, m.predmet)
+  let ustvari = { vrednost=0; predmet="" }
+  let opisiOceno (vrednost, predmet) = match vrednost with
+   | _ when (vrednost < 6) -> "nezadostno"
+   | 6 -> "zadostno"
+   | 7 -> "dobro"
+   | 8 -> "prav dobro"
+   | _ -> "odlicno"
+  let opisiOceno2 m = opisiOceno (poglejOceno m)
+ end;;
+
+module type PROFESOR =
+ sig
+  type ocena (* abstrakten tip *)
+  val spremeniVrednost : ocena -> int -> unit
+  val spremeniPredmet : ocena -> string -> unit
+  val poglejOceno : ocena -> int * string
+  val opisiOceno : int * 'a -> string
+ end;;
+
+module SIS = functor (Ocena:PROFESOR) ->
+ struct
+  type ocene = { mutable ocene: (int * string) list }
+  let vpisiOceno m ocena = m.ocene <- (Ocena.poglejOceno ocena) :: m.ocene
+  let pokaziOcene m = m.ocene
+  let ustvari = { ocene = [] }
+  let opisiOcene m =
+   let rec opisi seznam = match seznam with
+    | [] -> []
+    | g::r -> Ocena.opisiOceno g :: opisi r
+   in
+  opisi m.ocene
+ end;;
+
+(* naredimo oceno *)
+let prog2 = Ocena.ustvari;;
+Ocena.spremeniVrednost prog2 10;;
+Ocena.spremeniPredmet prog2 "Programiranje 2";;
+
+module FamnitSIS = SIS(Ocena);; (* naredimo modul za famnit SIS *)
+let famnitSIS = FamnitSIS.ustvari;; (* naredimo famnit SIS *)
+FamnitSIS.vpisiOceno famnitSIS prog2;; (* vpišemo oceno *)
+
+FamnitSIS.pokaziOcene famnitSIS;;
+
+
+FamnitSIS.opisiOcene famnitSIS;;
+
+
+module OcenaOS =
+ struct
+  type ocena = { mutable vrednost: int; mutable predmet: string }
+  let spremeniVrednost m vrednost = m.vrednost <- vrednost
+  let spremeniPredmet m predmet = m.predmet <- predmet
+  let poglejOceno m = (m.vrednost, m.predmet)
+  let ustvari = { vrednost=0; predmet="" }
+  let opisiOceno (vrednost, predmet) = match vrednost with
+   | 1 -> "nezadostno"
+   | 2 -> "zadostno"
+   | 3 -> "dobro"
+   | 4 -> "prav dobro"
+   | _ -> "odlicno"
+  let opisiOceno2 m = opisiOceno (poglejOceno m)
+ end;;
+
+(* naredimo oceno *)
+let slo = OcenaOS.ustvari;;
+OcenaOS.spremeniVrednost slo 3;;
+OcenaOS.spremeniPredmet slo "Slovenscina";;
+
+module OsSIS = SIS(OcenaOS);; (* naredimo modul SIS za osnovno solo *)
+let osSIS = OsSIS.ustvari;; (* naredimo osSIS *)
+
+OsSIS.vpisiOceno osSIS slo;; (* vpisemo oceno *)
+OsSIS.opisiOcene osSIS;; (* opise ocene v SISu *)
+
+-------------------------------------------------------------------------------
+PROFSTUD.ml
+module Ocena =
+ struct
+  type ocena = { mutable vrednost: int; mutable predmet: string }
+  let spremeniVrednost m vrednost = m.vrednost <- vrednost
+  let spremeniPredmet m predmet = m.predmet <- predmet
+  let poglejOceno m = (m.vrednost, m.predmet)
+  let ustvari = { vrednost=0; predmet="" }
+ end;;
+
+(* vmesnik za studenta *)
+module type STUDENT =
+ sig
+  type ocena (* implementacija ocene je skrita - abstrakten tip *)
+  val poglejOceno : ocena -> int * string
+ end;;
+
+(* vmesnik za profesorja *)
+module type PROFESOR =
+ sig
+  type ocena (* implementacija ocene je skrita - abstrakten tip *)
+  val poglejOceno : ocena -> int * string
+  val spremeniPredmet : ocena -> string -> unit
+  val spremeniVrednost : ocena -> int -> unit
+ end;;
+
+(* naredimo modul Profesor na novo *)
+module Profesor = (Ocena:PROFESOR with type ocena = Ocena.ocena);;
+
+(* naredimo modul Student na novo *)
+module Student = (Ocena:STUDENT with type ocena = Ocena.ocena);;
+
+(* naredimo oceno predmeta programiranja2 in shranimo v prog2 *)
+let prog2 = Ocena.ustvari;;
+
+(* vpisemo ime predmeta *)
+Profesor.spremeniPredmet prog2 "Programiranje 2";;
+
+(* student pogleda oceno *)
+Student.poglejOceno prog2;;
+
+-------------------------------------------------------------------------------
+SIS.ml
+module Ocena =
+ struct
+  type ocena = { mutable vrednost: int; mutable predmet: string }
+  let spremeniVrednost m vrednost = m.vrednost <- int_of_string (vrednost)
+  let spremeniPredmet m predmet = m.predmet <- predmet
+  let poglejOceno m = (m.vrednost, m.predmet)
+  let ustvari = { vrednost=0; predmet="" }
+ end;;
+
+module Ocena2 =
+ struct
+  type ocena = { mutable vrednost: string; mutable predmet: string }
+  let spremeniVrednost m vrednost = m.vrednost <- vrednost
+  let spremeniPredmet m predmet = m.predmet <- predmet
+  let poglejOceno m = (m.vrednost, m.predmet)
+  let ustvari = { vrednost=""; predmet="" }
+ end;;
+
+module type PROFESOR =
+ sig
+  type ocena (* abstrakten tip *)
+  val spremeniVrednost : ocena -> string -> unit
+  val spremeniPredmet : ocena -> string -> unit
+  val poglejOceno : ocena -> string * string
+ end;;
+
+module type STUDENT =
+ sig
+  type ocena
+  val poglejOceno : ocena -> string * string
+ end;;
+
+(* module SIS (Ocena:PROFESOR) = *)
+module SIS = functor (Ocena:PROFESOR) ->
+ struct
+  type ocene = { mutable ocene: (string * string) list }
+  let vpisiOceno m ocena = m.ocene <- (Ocena.poglejOceno ocena) :: m.ocene
+  let pokaziOcene m = m.ocene
+  let ustvari = { ocene = [] }
+ end;;
+
+let prog2 = Ocena2.ustvari;;
+
+module Profesor = (Ocena2:PROFESOR with type ocena = Ocena2.ocena);;
+module Student = (Ocena2:STUDENT with type ocena = Ocena2.ocena);;
+
+Profesor.spremeniVrednost prog2 "Zelo v redu";;
+Profesor.spremeniPredmet prog2 "Programiranje 2";;
+
+module FamnitSIS = SIS(Ocena2);;
+
+let famnitSIS = FamnitSIS.ustvari;;
+FamnitSIS.vpisiOceno famnitSIS prog2;;
+
+FamnitSIS.pokaziOcene famnitSIS;;

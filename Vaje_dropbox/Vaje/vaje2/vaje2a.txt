@@ -1,0 +1,384 @@
+Script started on Tue 03 Mar 2015 08:42:46 AM CET
+andrejk@famnit-1-ru1-10:~/Desktop/Prog2/vaje2$ ocaml
+        Objective Caml version 3.12.1
+
+# 1::
+  ;;
+[A[A# 1::
+  ;;
+Error: Syntax error
+# 1;;
+- : int = 1
+# 1 < 1;;
+- : bool = false
+# 3 * 4;;
+- : int = 12
+# let a=3;;
+val a : int = 3
+# let b = 5;;
+val b : int = 5
+# a*b;;
+- : int = 15
+# ();;
+- : unit = ()
+# true;;
+- : bool = true
+# false;;
+- : bool = false
+# not true;;
+- : bool = false
+# not false;;
+- : bool = true
+# if true then 1 else 2;;
+- : int = 1
+# if (5 > 6) then 1 else 2;;
+- : int = 2
+# 5;;
+- : int = 5
+# 9;;
+- : int = 9
+# -2;;
+- : int = -2
+# -4-8;;
+- : int = -12
+# - 4 + -8;;
+- : int = -12
+# -4 + (-8);;
+- : int = -12
+# 1073741823 +1;;
+- : int = -1073741824
+# -1073741824 -1;;
+- : int = 1073741823
+# 1 = 2;;
+- : bool = false
+# 1 < 3;;
+- : bool = true
+# 1  < 3  < 5;;
+[A# 1  < 3  < 5;;
+Error: This expression has type int but an expression was expected of type
+         bool
+# 1 < 3-1;;
+- : bool = true
+# 1 + 5;;
+- : int = 6
+# 1+5+7+9;;
+- : int = 22
+# 1*5*9*4*0;;
+- : int = 0
+# 1*5*5*0+3;;
+- : int = 3
+# 1 ==4;;
+- : bool = false
+# 1=4;;
+- : bool = false
+# 7 / 5;;
+- : int = 1
+# 9 / 3;;
+- : int = 3
+# 8/5;;
+- : int = 1
+# 7 => 7;;
+[A# 7 => 7;;
+Error: Unbound value =>
+# 7 >= 7;;
+- : bool = true
+# 2.3;;
+- : float = 2.3
+# 123e-5;;
+- : float = 0.00123
+# 1.;;
+- : float = 1.
+# 1.0;;
+- : float = 1.
+# 1.;;
+- : float = 1.
+# 6.
+  ;;
+- : float = 6.
+# 5.9 < 7;
+  ;;
+[A[A# 5.9 < 7;
+  ;;
+Error: This expression has type int but an expression was expected of type
+         float
+# 5.9 < 7.;;
+- : bool = true
+# 7.9 + 5.;;
+[A# 7.9 + 5.;;
+Error: This expression has type float but an expression was expected of type
+         int
+# 7.9 +. 5.;;
+- : float = 12.9
+# 4 / 2;;
+- : int = 2
+# 4. /. 2.;;
+- : float = 2.
+# 7. /. 3.;;
+- : float = 2.33333333333333348
+# 5 + int_of_float 6.;;
+- : int = 11
+# 9.8 *. float_of_int 9;;
+- : float = 88.2
+# 2. ** 3. ** 2.;;
+- : float = 512.
+# 2. ** (3. ** 2.);;
+- : float = 512.
+# 'z';;
+- : char = 'z'
+# 'A';;
+- : char = 'A'
+# '0';;
+- : char = '0'
+# int_of_chat 'a';;
+[A# int_of_chat 'a';;
+Error: Unbound value int_of_chat
+# int_of_char 'a';;
+- : int = 97
+# char_of_int 99;;
+- : char = 'c'
+# "to je niz";;
+- : string = "to je niz"
+# string_of_int 2015;;
+- : string = "2015"
+# string_of_int (8 *50);;
+- : string = "400"
+# int_of_string "2025";;
+- : int = 2025
+# int_of_string "duif";;
+Exception: Failure "int_of_string".
+# string_of_int (int_of_char 'r');;
+- : string = "114"
+# let a = " ";;
+val a : string = " "
+# a.[0] <- 'a';;
+- : unit = ()
+# a;;
+- : string = "a"
+# "Danes je " ^ "lepo" ^ " " ^ "vreme" ^ "!";;
+- : string = "Danes je lepo vreme!"
+# true < false;;
+- : bool = false
+# false < true;;
+- : bool = true
+# 1 = 2 && 1.0 <> 2.;;
+- : bool = false
+# 1 = 2 || 1.0 <> 2.;;
+- : bool = true
+# not (1=2)  && 1.0 < 2.0;;
+- : bool = true
+# (6,9,7.,true);;
+- : int * int * float * bool = (6, 9, 7., true)
+# ("kaj", "delas" , "ju", 3);;
+- : string * string * string * int = ("kaj", "delas", "ju", 3)
+# (4,8);;
+- : int * int = (4, 8)
+# (5, "leto");;
+- : int * string = (5, "leto")
+# fst (4,8);;
+- : int = 4
+# snd (4,8);;
+- : int = 8
+# fst (4,8,7);;
+[A# fst (4,8,7);;
+Error: This expression has type int * int * int
+       but an expression was expected of type 'a * 'b
+# (5,(9,true)9;;
+[A# (5,(9,true)9;;
+Syntax error: ')' expected, the highlighted '(' might be unmatched
+# (5,(9,true));;
+- : int * (int * bool) = (5, (9, true))
+# fst (5,(9,true));;
+- : int = 5
+# snd (5,(9,true));;
+- : int * bool = (9, true)
+# fst snd (5,(9,true));;
+[A# fst snd (5,(9,true));;
+Error: This expression has type 'a * 'b -> 'b
+       but an expression was expected of type ('c -> 'd) * 'e
+# fst (snd (5,(9,true)));;
+- : int = 9
+# snd (fst (5,(9,true)));;
+[A# snd (fst (5,(9,true)));;
+Error: This expression has type int but an expression was expected of type
+         'a * 'b
+# [7;6;8;4;8];;
+- : int list = [7; 6; 8; 4; 8]
+# [5.;7.;8.];;
+- : float list = [5.; 7.; 8.]
+# [7;9.7];;
+[A# [7;9.7];;
+Error: This expression has type float but an expression was expected of type
+         int
+# ['f';char_of_int 99];;
+- : char list = ['f'; 'c']
+# 1::[5;8];;
+- : int list = [1; 5; 8]
+# 1::[];;
+- : int list = [1]
+# 1::[]@[5;8];;
+- : int list = [1; 5; 8]
+# [8;9]@[9;2];;
+- : int list = [8; 9; 9; 2]
+# [5]@[6]@[7];;
+- : int list = [5; 6; 7]
+# [9;2]::1;;
+[A# [9;2]::1;;
+Error: This expression has type int but an expression was expected of type
+         int list list
+# 6::[]::[];;
+[A# 6::[]::[];;
+Error: This expression has type 'a list
+       but an expression was expected of type int
+# (6::[])::[];;
+- : int list list = [[6]]
+# [[1;1];[1;1]];;
+- : int list list = [[1; 1]; [1; 1]]
+# [[1;1];1];;
+[A# [[1;1];1];;
+Error: This expression has type int but an expression was expected of type
+         int list
+# [8; 9; 9; 2];;
+- : int list = [8; 9; 9; 2]
+# 8::9::9;;
+[A# 8::9::9;;
+Error: This expression has type int but an expression was expected of type
+         int list
+# 8::9::9::2::[];;
+- : int list = [8; 9; 9; 2]
+# List.hd [8; 9; 9; 2];;
+- : int = 8
+# List.tl [8; 9; 9; 2];;
+- : int list = [9; 9; 2]
+# List.hd (List.tl [8; 9; 9; 2]);;
+- : int = 9
+# List.hd (List.tl (List.tl (List.tl [8; 9; 9; 2])));;
+- : int = 2
+# List.tl (List.tl (List.tl (List.tl [8; 9; 9; 2])));;
+- : int list = []
+# List.hd (List.tl (List.tl (List.tl (List.tl [8; 9; 9; 2]))));;
+Exception: Failure "hd".
+# List.tl (List.tl (List.tl (List.tl (List.tl [8; 9; 9; 2]))));;
+Exception: Failure "tl".
+# let a = [8; 9; 9; 2];;
+val a : int list = [8; 9; 9; 2]
+# a;;
+- : int list = [8; 9; 9; 2]
+# List.hd a;;
+- : int = 8
+# let a = 7;;
+val a : int = 7
+# let b = 9;;
+val b : int = 9
+# a;;
+- : int = 7
+# b;;
+- : int = 9
+# a +b;;
+- : int = 16
+# a < b;;
+- : bool = true
+# let x = 5 +7;;
+val x : int = 12
+# x;;
+- : int = 12
+# let x = x < 5;;
+val x : bool = false
+# x;;
+- : bool = false
+# let a = 4 and b = 7 and e = 7;;
+val a : int = 4
+val b : int = 7
+val e : int = 7
+# a-b-e;;
+- : int = -10
+# let i = 1 and j = i +2;;
+[A# let i = 1 and j = i +2;;
+Error: Unbound value i
+# let i = 5;;
+val i : int = 5
+# let i = 1 and j = i +2;;
+val i : int = 1
+val j : int = 7
+# i;;
+- : int = 1
+# let dan = "Torek" in "Danes je " ^ dan;;
+- : string = "Danes je Torek"
+# dan;;
+[A# dan;;
+Error: Unbound value dan
+# let i = 10;;
+val i : int = 10
+# let i = 1 in 6 +i;;
+- : int = 7
+# i;;
+- : int = 10
+# let i = 1 and t=5 in i*t;;
+- : int = 5
+# let i = 1 and t=5 in 6 +i;;
+[A# let i = 1 and t=5 in 6 +i;;
+Warning 26: unused variable t.
+- : int = 7
+# t;;
+[A# t;;
+Error: Unbound value t
+# let x = let y = 1+1 in y+y in x+x;;
+- : int = 8
+# (let x = 1 in let y = 2 in x + y) = 3;;
+- : bool = true
+# let a =3;;
+val a : int = 3
+# let b = 8.;;
+val b : float = 8.
+# int_of_float b + a;;
+- : int = 11
+# let sez1 = [1;2] and sez2 [4;5];;
+[A# let sez1 = [1;2] and sez2 [4;5];;
+Error: Syntax error
+# let sez1 = [1;2] and sez2 = [4;5];;
+val sez1 : int list = [1; 2]
+val sez2 : int list = [4; 5]
+# let sez3 = sez1@3::[]@sez2;;
+val sez3 : int list = [1; 2; 3; 4; 5]
+# let a =4 and b = 5 and c = 7 in a*b*c;;
+- : int = 140
+# let ime = "Micka";;
+val ime : string = "Micka"
+# let telefon = 031900000;;
+val telefon : int = 31900000
+# [ime;string_of_int telefon];;
+- : string list = ["Micka"; "31900000"]
+# 8,;;
+[A# 8,;;
+Error: Syntax error
+# 9.;;
+- : float = 9.
+# true;;
+- : bool = true
+# "bakala";;
+- : string = "bakala"
+# (true,false);;
+- : bool * bool = (true, false)
+# (8.,9,'t');;
+- : float * int * char = (8., 9, 't')
+# ['f'];;
+- : char list = ['f']
+# ((5,7),(9,1));;
+- : (int * int) * (int * int) = ((5, 7), (9, 1))
+# (5,(true,('r',()),8.),0,"bla");;
+- : int * (bool * (char * unit) * float) * int * string =
+(5, (true, ('r', ()), 8.), 0, "bla")
+# let a = 5 and b = 8 in if (a <b) then b else a;;
+- : int = 8
+# let mala_crka = 'a';;
+val mala_crka : char = 'a'
+# let velika_crka (char_of_int ((int_of_char mala_crka) -32));;
+[A# let velika_crka (char_of_int ((int_of_char mala_crka) -32));;
+Syntax error: ')' expected, the highlighted '(' might be unmatched
+# let velika_crka = (char_of_int ((int_of_char mala_crka) -32));;
+val velika_crka : char = 'A'
+# ^CInterrupted.
+# 
+andrejk@famnit-1-ru1-10:~/Desktop/Prog2/vaje2$ exit
+exit
+
+Script done on Tue 03 Mar 2015 10:34:53 AM CET
